@@ -1,0 +1,20 @@
+﻿{
+    "paths":  {
+        "jquery": "jquery-3.1.0",
+        "leaflet-draw": "leaflet.draw",
+        "jquery-validate": "jquery.validate",
+        "jquery-validate-unobtrusive": "jquery.validate.unobtrusive",
+        "bootstrap": "bootstrap"
+    },
+    "shim": {
+        "jquery-validate": {
+            "deps": [ "jquery" ]
+        },
+        "jquery-validate-unobtrusive": {
+            "deps": [ "jquery", "jquery-validate" ]
+        },
+        "bootstrap": { 
+            "deps":  ["jquery"]
+        }
+    }
+}

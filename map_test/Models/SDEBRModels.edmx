@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sdeBRTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PropertyList">
+          <Key>
+            <PropertyRef Name="ParcelNumb" />
+          </Key>
+          <Property Name="ParcelNumb" Type="bigint" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="255" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="StreetName" Type="nvarchar" MaxLength="255" />
+          <Property Name="StreetSuffix" Type="nvarchar" MaxLength="255" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="255" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="255" />
+          <Property Name="ZIPCODE" Type="nvarchar" MaxLength="255" />
+          <Property Name="LAT" Type="float" />
+          <Property Name="LONG" Type="float" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="255" />
+          <Property Name="FLD_ZONE" Type="nvarchar" MaxLength="255" />
+          <Property Name="FLOODWAY" Type="nvarchar" MaxLength="255" />
+          <Property Name="BFE" Type="float" />
+          <Property Name="FIRM_DATE" Type="float" />
+          <Property Name="FIRM_PAN" Type="nvarchar" MaxLength="255" />
+          <Property Name="SUFFIX" Type="nvarchar" MaxLength="255" />
+          <Property Name="geom" Type="geography" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="sdeBRTestModelStoreContainer">
+          <EntitySet Name="PropertyList" EntityType="Self.PropertyList" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sdeBRTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PropertyList">
+          <Key>
+            <PropertyRef Name="ParcelNumb" />
+          </Key>
+          <Property Name="ParcelNumb" Type="Int64" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StreetName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StreetSuffix" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LAT" Type="Double" />
+          <Property Name="LONG" Type="Double" />
+          <Property Name="STATUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FLD_ZONE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FLOODWAY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BFE" Type="Double" />
+          <Property Name="FIRM_DATE" Type="Double" />
+          <Property Name="FIRM_PAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SUFFIX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geography" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="sdeBRTestEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PropertyLists" EntityType="Self.PropertyList" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sdeBRTestModelStoreContainer" CdmEntityContainer="sdeBRTestEntities1">
+          <EntitySetMapping Name="PropertyLists">
+            <EntityTypeMapping TypeName="sdeBRTestModel.PropertyList">
+              <MappingFragment StoreEntitySet="PropertyList">
+                <ScalarProperty Name="ParcelNumb" ColumnName="ParcelNumb" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="StreetSuffix" ColumnName="StreetSuffix" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="LAT" ColumnName="LAT" />
+                <ScalarProperty Name="LONG" ColumnName="LONG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="FLD_ZONE" ColumnName="FLD_ZONE" />
+                <ScalarProperty Name="FLOODWAY" ColumnName="FLOODWAY" />
+                <ScalarProperty Name="BFE" ColumnName="BFE" />
+                <ScalarProperty Name="FIRM_DATE" ColumnName="FIRM_DATE" />
+                <ScalarProperty Name="FIRM_PAN" ColumnName="FIRM_PAN" />
+                <ScalarProperty Name="SUFFIX" ColumnName="SUFFIX" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

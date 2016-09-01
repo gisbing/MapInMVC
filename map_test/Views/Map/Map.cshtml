@@ -1,0 +1,63 @@
+﻿
+<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script type='text/javascript' src='http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2'></script>
+
+
+@{
+    ViewBag.Title = "Map View";
+}
+
+<h2>Map View</h2>
+
+<div class="row" style="margin-top: 10px;">
+
+    <div class="col-md-3">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#structureMenu" id="menuButton">
+                        <span class="sr-only">Toggle navigation</span>
+                        Assignments
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="structureMenu">
+                    <div>Filters</div>
+                    <ul class="nav navbar-left">
+                        <li>
+
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                Inspection Date
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.navbar-collapse -->
+                <div>
+                    <label>Lat: </label><label id="lat"></label>
+                    </div>
+                <div>
+                    <label>Lng: </label><label id="lng"></label>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="col-md-9">
+
+        <div id="map" style="height: 600px"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+        
+
+    //});
+</script>
