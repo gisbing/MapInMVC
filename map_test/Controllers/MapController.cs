@@ -36,6 +36,8 @@ namespace map_test.Controllers
             using (var context = new sdeBRTestEntities1())
             {
                 var properties = (from p in context.PropertyLists select p).ToList();
+
+                //var properties = context.PropertyLists.Where(p => new[]{333435,333450,334847,358085,359182}.Any(pn => pn == p.ParcelNumb ));
                 foreach (var prop in properties)
                 {
                     var point = new GeoJSON.Net.Geometry.Point(new GeoJSON.Net.Geometry.GeographicPosition(Convert.ToDouble(prop.LAT.ToString()), Convert.ToDouble(prop.LONG.ToString())));
