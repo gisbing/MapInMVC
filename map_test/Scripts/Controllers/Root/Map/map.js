@@ -199,8 +199,10 @@
             "Grayscale": grayscale,
             "Streets": openstreets,
             "Esri Imagery": esriimagery
-        };
-        L.control.layers(baseLayers).addTo(map);
+        };
+
+        L.control.layers(baseLayers).addTo(map);
+
 
         //get properties
         $.ajax(
@@ -254,12 +256,12 @@
             $.ajax(
             {
                 type: "POST",
-                url: "/Map/FindIntersect",
+                url: "/Map/FindIntersect1",
                 //dataType: 'json',
                 data: JSON.stringify( e.layer._latlngs),
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
-                    selectProperties();
+                    selectProperties(result);
                     
                 },
                 error: function (req, status, error) {
@@ -283,7 +285,8 @@
                         opacity: 1,
                         fillOpacity: 0.8
                     });
-                }
+                }
+
             }).addTo(map);
             //consol.log(data);
         }
@@ -301,9 +304,14 @@
             layer.bindPopup(popupContent);
             layer.on('mouseover', function () { layer.openPopup(); });
             layer.on('mouseout', function () { layer.closePopup(); });
-        } 
-        function selectProperties() {
-            selectedLayer = L.geoJson(selectedProperties, {
+        }
+ 
+        function selectProperties(data) {
+            if (selectedLayer) {
+                map.removeLayer(selectedLayer);
+                $("#selectedParcelIds").empty();
+            }
+            selectedLayer = L.geoJson(JSON.parse(data), {
                 onEachFeature: onEachFeature,
                 pointToLayer: function (feature, latlng) {
                     return L.circleMarker(latlng, {
@@ -318,6 +326,9 @@
 
             }).addTo(map);
             var selectedIds = [333435, 333450, 334847, 358085, 359182];
+            selectedIds = _.map((JSON.parse(data)).features, function (idx) {
+                return idx.properties.parcelNumb;
+            });
             var selectedIdsHtml = '';
             $.each(selectedIds, function (index, val) {
                 selectedIdsHtml += '<li>' + val + '</li>';
